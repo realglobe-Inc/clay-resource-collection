@@ -49,13 +49,21 @@ describe('define', function () {
     {
 
       let userCollection01 = new UserCollection(
-        yield User.list({ filter: { org: orgs[ 1 ] }, page: { size: 2, number: 1 } })
+        yield User.list({ filter: { org: orgs[ 1 ] }, page: { size: 5, number: 1 } })
       )
       ok(userCollection01.hasNext)
       ok(!userCollection01.hasPrev)
 
-      ok(yield userCollection01.next())
-      ok(yield userCollection01.prev())
+      let userCollection02 = yield userCollection01.next()
+
+      ok(userCollection02.hasPrev)
+
+      let userCollection03 = yield userCollection02.prev()
+      ok(!userCollection03.hasPrev)
+
+      let userCollection04 = yield userCollection02.next()
+      ok(userCollection04.hasPrev)
+      ok(!userCollection04.hasNext)
     }
   }))
 })
