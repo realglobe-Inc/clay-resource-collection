@@ -74,12 +74,49 @@ Usage
 ```javascript
 'use strict'
 
-const clayResourceCollection = require('clay-resource-collection')
+const { define } = require('clay-resource-collection')
+const { fromDriver } = require('clay-resource')
+const clayDriverMemory = require('clay-driver-memory')
+
+async function tryExample () {
+  let driver = clayDriverMemory({})
+  let Org = fromDriver(driver, 'Org')
+  let User = fromDriver(driver, 'User')
+
+  let OrgCollection = define(User)
+  let UserCollection = define(Org)
+
+  let orgs = new OrgCollection(await Org.list({ filter: {} })
+  let users = new UserCollection(await User.list({ filter: {} }))
+
+  while (orgs.hasNext) {
+    orgs = await orgs.next()
+  }
+
+}
+
+tryExample.catch((err) => console.error)
 
 ```
 
 
 <!-- Section from "doc/guides/02.Usage.md.hbs" End -->
+
+<!-- Section from "doc/guides/03.Functions.md.hbs" Start -->
+
+<a name="section-doc-guides-03-functions-md"></a>
+
+Functions
+---------
+
+Available functions
+
+| Signature | Description |
+| ---- | ----------- |
+| `define(-) -> function` | Define collection for resource |
+
+
+<!-- Section from "doc/guides/03.Functions.md.hbs" End -->
 
 
 <!-- Sections Start -->
@@ -90,7 +127,7 @@ const clayResourceCollection = require('clay-resource-collection')
 
 License
 -------
-This software is released under the [MIT License](https://github.com/realglobe-Inc/clay-resource-collection/blob/master/LICENSE).
+This software is released under the [Apache-2.0 License](https://github.com/realglobe-Inc/clay-resource-collection/blob/master/LICENSE).
 
 <!-- LICENSE End -->
 
@@ -101,6 +138,10 @@ This software is released under the [MIT License](https://github.com/realglobe-I
 Links
 ------
 
++ [ClayDB][clay_d_b_url]
++ [Realglobe, Inc.][realglobe,_inc__url]
 
+[clay_d_b_url]: https://github.com/realglobe-Inc/claydb
+[realglobe,_inc__url]: http://realglobe.jp
 
 <!-- Links End -->
