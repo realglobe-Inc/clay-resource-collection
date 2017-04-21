@@ -1,0 +1,50 @@
+{
+  "name": "clay-resource-collection",
+  "version": "1.0.0",
+  "description": "Collection extensions for Clay-Resource",
+  "main": "lib",
+  "scripts": {
+    "test": "node ./ci/test.js",
+    "prepare": "node ./ci/build.js && node ./ci/shim.js"
+  },
+  "repository": "realglobe-Inc/clay-resource-collection",
+  "keywords": [
+    "ClayDB"
+  ],
+  "author": {
+    "name": "Taka Okunishi",
+    "email": "okunishinishi@gmail.com",
+    "url": "http://okunishitaka.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/realglobe-Inc/clay-resource-collection/issues"
+  },
+  "homepage": "https://github.com/realglobe-Inc/clay-resource-collection#readme",
+  "dependencies": {
+    "asobj": "^1.5.0",
+    "clay-collection": "^3.0.1",
+    "clay-resource-name": "^4.0.1",
+    "co": "^4.6.0"
+  },
+  "devDependencies": {
+    "ababel": "^2.0.1",
+    "ababel-es2015": "^2.0.1",
+    "amocha": "^2.0.0",
+    "ape-doc": "^2.0.4",
+    "ape-formatting": "^1.0.2",
+    "ape-releasing": "^4.0.4",
+    "ape-tasking": "^4.0.9",
+    "ape-tmpl": "^5.0.20",
+    "ape-updating": "^4.1.0",
+    "clay-driver-memory": "^4.0.1",
+    "clay-resource": "^3.1.2",
+    "coz": "^6.0.20",
+    "injectmock": "^2.0.0",
+    "sugos-travis": "^2.0.7"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=4"
+  }
+}
