@@ -1,6 +1,6 @@
 {
   "name": "clay-resource-collection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collection extensions for Clay-Resource",
   "main": "lib",
   "scripts": {
